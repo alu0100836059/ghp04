@@ -32,4 +32,12 @@ program resumes here. Value of x is: changed.
 41.
 Que con pry podemos interactuar con nuestro programa analizando el resultado de cada funcion, de las variables asi como actualizar o incorporar nuevas funciones.
 
+48.
+2.2.1 :001 > "\t\n"
+ => "\t\n" 
+2.2.1 :002 > '\t\n'
+ => "\\t\\n" 
+2.2.1 :003 > 
 
+49.
+Se utiliza para la sintaxis string.Las comillas simples es similar a %Q, pero las cadenas entre comillas simples no estan sujetas a la sustituci'on expresi'on o secuercias de escape.
