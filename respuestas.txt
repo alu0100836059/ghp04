@@ -1,7 +1,8 @@
 Respuestas practica 4
 
-Que es RVM?
+27.Que es RVM?
 Es una plataforma dise;ada para posibilitar multiples instalaciones de ruby en un mismo equipo.
 
-
-
+31. 
+Hello world
+=> nil
