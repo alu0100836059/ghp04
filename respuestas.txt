@@ -41,3 +41,143 @@ Que con pry podemos interactuar con nuestro programa analizando el resultado de 
 
 49.
 Se utiliza para la sintaxis string.Las comillas simples es similar a %Q, pero las cadenas entre comillas simples no estan sujetas a la sustituci'on expresi'on o secuercias de escape.
+
+50.
+Esta es una alternativa para las cadenas entre comillas dobles cuando se tiene m'as caracteres de comillas en un string. En vez de poner las barras invertidas delante de ellos.
+irb(main):008:0> %Q{hello world\n}
+=> "hello world\n"
+
+irb(main):009:0> %Q{"a" "b" "c"}
+=> "\"a\" \"b\" \"c\""
+
+51.
+[1] pry(main)> a = 4
+=> 4
+[2] pry(main)> b=2
+=> 2
+[3] pry(main)> c = <<HERE
+[3] pry(main)* --#{a}--
+[3] pry(main)* --#{b}--
+[3] pry(main)* HERE
+=> "--4--\n--2--\n"
+
+
+52.
+[4] pry(main)> a = 4
+=> 4
+[5] pry(main)> b = 2
+=> 2
+[6] pry(main)> c = <<'HERE'
+[6] pry(main)* --#{a}--
+[6] pry(main)* --#{b}--
+[6] pry(main)* HERE
+=> "--\#{a}--\n--\#{b}--\n"
+
+
+53.
+[7] pry(main)> s = "hello"
+=> "hello"
+[8] pry(main)> s[0,2]
+=> "he"
+[9] pry(main)> s[-1,1]
+=> "o"
+[10] pry(main)> s[0,10]
+=> "hello"
+
+
+54.
+hello world
+
+55.
+=> ",,,"
+
+56.
+=> "2 2 2 "
+
+
+57.
+Se utiliza para comillas dobles sintaxis
+=> ["this", "is", "a", "test"]
+
+58.
+=> ["\\t\\n"] 
+
+59.
+ => ["\t\n"] 
+
+60.
+=> [nil, nil, nil] 
+
+61.
+=> [0, 0, 0] 
+
+62.
+=> [[1, 2], [3, 4]] 
+
+63.
+=> [0, 2, 4]
+
+64.
+[18] pry(main)> a = ('a'..'e').to_a
+=> ["a", "b", "c", "d", "e"]
+[19] pry(main)> a[1,1]
+=> ["b"]
+[20] pry(main)> a[-2,2]
+=> ["d", "e"]
+[21] pry(main)> a[0..1]
+=> ["a", "b"]
+[22] pry(main)> a[0..2]
+=> ["a", "b", "c"]
+[23] pry(main)> a[-2,-1]
+=> nil
+
+
+65.
+[24] pry(main)> a
+=> ["a", "b", "c", "d", "e"]
+[25] pry(main)> a[0,2] = %w{A,B}
+=> ["A,B"]
+[26] pry(main)> a
+=> ["A,B", "c", "d", "e"]
+[27] pry(main)> a[2..5] = %w{C D E}
+=> ["C", "D", "E"]
+[28] pry(main)> a
+=> ["A,B", "c", "C", "D", "E"]
+[29] pry(main)> a[0.0] = [1,2,3]
+=> [1, 2, 3]
+[30] pry(main)> a
+=> [[1, 2, 3], "c", "C", "D", "E"]
+[31] pry(main)> a[0,2] = []
+=> []
+[32] pry(main)> a
+=> ["C", "D", "E"]
+[33] pry(main)> a[-1,1] = ['Z']
+=> ["Z"]
+[34] pry(main)> a
+=> ["C", "D", "Z"]
+[35] pry(main)> a[-2,2] = nil
+=> nil
+[36] pry(main)> a
+=> ["C", nil]
+
+
+66.
+[37] pry(main)> a = (1...4).to_a
+=> [1, 2, 3]
+[38] pry(main)> a = a + [4,5]
+=> [1, 2, 3, 4, 5]
+[39] pry(main)> a += [[6,7,8]]
+=> [1, 2, 3, 4, 5, [6, 7, 8]]
+[40] pry(main)> a = a+ 9
+TypeError: no implicit conversion of Fixnum into Array
+from (pry):46:in `+'
+
+
+67.
+[41] pry(main)> x = %w{a b c b a}
+=> ["a", "b", "c", "b", "a"]
+[42] pry(main)> x = x - %w{b c d}
+=> ["a", "a"]
+
+
+68.
