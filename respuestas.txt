@@ -181,3 +181,166 @@ from (pry):46:in `+'
 
 
 68.
+=> [0, 0, 0, 0, 0, 0, 0, 0] 
+
+
+69.
+2.2.1 :001 > a = []
+ => [] 
+2.2.1 :002 > a << 1
+ => [1] 
+2.2.1 :003 > a << 2 << 3
+ => [1, 2, 3] 
+2.2.1 :004 > a << [4,5,6]
+ => [1, 2, 3, [4, 5, 6]] 
+2.2.1 :005 > a.concat [7,8]
+ => [1, 2, 3, [4, 5, 6], 7, 8] 
+
+
+70.
+2.2.1 :001 > a = [1, 1, 2, 2, 3, 3, 4]
+ => [1, 1, 2, 2, 3, 3, 4] 
+2.2.1 :002 > b = [5, 5, 4, 4, 3, 3, 2]
+ => [5, 5, 4, 4, 3, 3, 2] 
+2.2.1 :003 > c = a | b
+ => [1, 2, 3, 4, 5] 
+2.2.1 :004 > d = b | a
+ => [5, 4, 3, 2, 1] 
+2.2.1 :005 > e = a & b
+ => [2, 3, 4] 
+2.2.1 :006 > f = b & a
+ => [4, 3, 2] 
+
+
+71.
+2.2.1 :001 > a = 1..10
+ => 1..10 
+2.2.1 :002 > a.class
+ => Range 
+2.2.1 :003 > a.to_a
+ => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
+2.2.1 :004 > b = 1...10
+ => 1...10 
+2.2.1 :005 > b.to_a
+ => [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+2.2.1 :006 > b.include? 10
+ => false 
+2.2.1 :007 > b.include? 8
+ => true 
+2.2.1 :008 > b.step(2) {|x| print "{x} " }
+{x} {x} {x} {x} {x}  => 1...10 
+2.2.1 :009 > 1..3.to_a
+NoMethodError: undefined method `to_a' for 3:Fixnum
+	from (irb):9
+	from /home/jacko/.rvm/rubies/ruby-2.2.1/bin/irb:11:in `<main>'
+
+
+72.
+2.2.1 :001 > r = 0...100
+ => 0...100 
+2.2.1 :002 > r.member? 50
+ => true 
+2.2.1 :003 > r.include? 99.9
+ => true 
+2.2.1 :004 > r.member? 99.9
+ => true 
+
+
+73.
+2.2.1 :001 > true.class
+ => TrueClass 
+2.2.1 :002 > false.class
+ => FalseClass 
+2.2.1 :003 > puts "hello" if 0
+hello
+ => nil 
+2.2.1 :004 > puts "hello" if nil
+ => nil 
+2.2.1 :005 > puts "hello" if ""
+(irb):5: warning: string literal in condition
+hello
+ => nil 
+
+
+74.
+2.2.1 :001 > x = :sym
+ => :sym 
+2.2.1 :002 > x.class
+ => Symbol 
+2.2.1 :003 > x == 'sym'
+ => false 
+2.2.1 :004 > x == :sym
+ => true 
+2.2.1 :005 > z = :'a long symbol'
+ => :"a long symbol" 
+2.2.1 :006 > z.class
+ => Symbol 
+2.2.1 :007 > x == 'sym'.to_sym
+ => true 
+2.2.1 :008 > x.to_s == 'sym'
+ => true 
+
+
+75.
+2.2.1 :001 > s = "Ruby"
+ => "Ruby" 
+2.2.1 :002 > t = s
+ => "Ruby" 
+2.2.1 :003 > t[-1] = ""
+ => "" 
+2.2.1 :004 > print s
+Rub => nil 
+2.2.1 :005 > t = "Java"
+ => "Java" 
+2.2.1 :006 > print s, t
+RubJava => nil 
+
+
+76.
+2.2.1 :001 > "%d %s" % [3, "rubies"]
+ => "3 rubies" 
+
+
+77.
+2.2.1 :001 > x, y = 4, 5
+ => [4, 5] 
+2.2.1 :002 > z = x > y ? x : y
+ => 5 
+2.2.1 :003 > x,y,z = [1,2,3]
+ => [1, 2, 3] 
+
+
+78.
+2.2.1 :001 > x = { :a => 1, :b => 2 }
+ => {:a=>1, :b=>2} 
+2.2.1 :002 > x.keys
+ => [:a, :b] 
+2.2.1 :003 > x.values
+ => [1, 2] 
+2.2.1 :004 > x[:c] = 3
+ => 3 
+2.2.1 :005 > x
+ => {:a=>1, :b=>2, :c=>3} 
+2.2.1 :006 > x.delete('a')
+ => nil 
+2.2.1 :007 > x
+ => {:a=>1, :b=>2, :c=>3} 
+2.2.1 :008 > x.delete(:a)
+ => 1 
+2.2.1 :009 > x
+ => {:b=>2, :c=>3} 
+2.2.1 :010 > x = { :a => 1, :b => 2, :c => 4 }
+ => {:a=>1, :b=>2, :c=>4} 
+2.2.1 :011 > x.delete_if { |k,v| v % 2 == 0 }
+ => {:a=>1} 
+2.2.1 :012 > x
+ => {:a=>1} 
+
+
+79.
+Crea un objeto tipo hash vacio con nombre counts. No existe ninguna diferencia entre ambos puesto que en el segundo caso tambien se crea un objeto del tipo hash y se lo asigna a counts.
+
+
+80.
+hace el uso de w% con los parametros que se le introducen entre comillas simples, la salida es: ["hello", "world", "hello", "LPP"]
+
